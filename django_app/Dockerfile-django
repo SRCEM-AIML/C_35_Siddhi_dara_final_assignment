@@ -1,0 +1,19 @@
+# Use official Python image as base
+FROM python:3.10-slim
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy Django app dependencies and install them
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copy the rest of the Django app code
+COPY . .
+
+# Expose port 8000
+EXPOSE 8000
+
+# Run Django app
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+

@@ -1,0 +1,14 @@
+services:
+  flask:
+    build:
+      context: ./flask
+      dockerfile: Dockerfile-flask
+    ports:
+      - "5000:5000"
+
+  django:
+    build:
+      context: ./django_app
+      dockerfile: Dockerfile-django
+    ports:
+      - "8000:8000"
